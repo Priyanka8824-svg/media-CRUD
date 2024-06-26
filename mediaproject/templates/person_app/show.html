@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Show</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<h1 class="text-center text-warning">Person Record</h1>
+
+<table class="table table-primary">
+    <thead>
+    <tr>
+        <th>Pid</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Profile</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        {% for per in obj %}
+        <tr>
+            <td>{{per.pid}}</td>
+            <td>{{per.first_name}}</td>
+            <td>{{per.last_name}}</td>
+            <td>{{per.gender}}</td>
+            <td>{{per.address}}</td>
+            <td>{{per.city}}</td>
+            <td><img src="{{per.profile_pic.url}}" height="200" width="200"></td>
+
+            <td>
+                <a href="/a1/uv/{{per.pid}}/"><button class="btn btn-success">Update</button></a>
+                <a href="/a1/dv/{{per.pid}}/"><button class="btn btn-warning">Delete</button></a>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
